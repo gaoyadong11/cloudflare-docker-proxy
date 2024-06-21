@@ -15,8 +15,9 @@ const routes = {
   "k8s.openlink.pp.ua": "https://registry.k8s.io",
   "ghcr.openlink.pp.ua": "https://ghcr.io",
   "cloudsmith.openlink.pp.ua": "https://docker.cloudsmith.io",
+   // staging
+  "docker-staging.openlink.pp.ua": dockerHub,
 };
-
 
 function routeByHosts(host) {
   if (host in routes) {
@@ -40,6 +41,15 @@ async function handleRequest(request) {
         status: 404,
       }
     );
+  }
+  // return docs
+  if (url.pathname === "/") {
+    return new Response(DOCS, {
+      status: 200,
+      headers: {
+        "content-type": "text/html"
+      }
+    });
   }
   const isDockerHub = upstream == dockerHub;
   const authorization = request.headers.get("Authorization");

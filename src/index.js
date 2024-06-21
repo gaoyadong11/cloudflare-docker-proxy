@@ -8,14 +8,16 @@ addEventListener("fetch", (event) => {
 const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
-  "docker.openlink.pp.ua": "https://registry-1.docker.io",
+  // production
+  "docker.openlink.pp.ua": dockerHub,
   "quay.openlink.pp.ua": "https://quay.io",
   "gcr.openlink.pp.ua": "https://gcr.io",
   "k8s-gcr.openlink.pp.ua": "https://k8s.gcr.io",
   "k8s.openlink.pp.ua": "https://registry.k8s.io",
   "ghcr.openlink.pp.ua": "https://ghcr.io",
   "cloudsmith.openlink.pp.ua": "https://docker.cloudsmith.io",
-   // staging
+
+  // staging
   "docker-staging.openlink.pp.ua": dockerHub,
 };
 
